@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Card from './Card';
 
 const CardList = () => {
 
-
-    fetch("https://rickandmortyapi.com/api/character")
-    .then((response) => {
-        if(response.ok) {
-            return response.json()
-        }
-    }).then(data => {
-        // info donne les liens pour la page next et prev
-        //console.log(data['info'])
-        data['results'].map(result => {
-            let result_key = result.id
-            let result_name = result.name
-            let result_location = result.location.name
-            let result_image = result.image
-           return  <Card key={result_key} image={result_image} name={result_name} location={result_location} />
-        })
-    })
+    const [pagination , setPagination] = useState([])
+    const [characters , setCharacters] = useState([])
     
 
-    
+    console.log(pagination);
+    useEffect(() => {
+       axios.get("https://rickandmortyapi.com/api/character")
+       .then(res => {
+        setPagination(res.data.info)
+        setCharacters(res.data.results)
+       })
+    }, [])
+
+    return (
+        <div className='container'>
+        {characters.map((character) => {
+            return <Card key={character.id} id={character.id} image={character.image} name={character.name} location={character.location.name} status={character.status} />
+        })}
+        </div>
+    );
+
+
+
 }
 
 export default CardList

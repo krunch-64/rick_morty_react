@@ -1,5 +1,49 @@
 body {
     background-image: url("../assets/background-by-adult-swim.png");
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    backdrop-filter: brightness(50%);
+    height: auto;
 }
 
+.card {
+    background-color: white;
+    width: 300px;
+    height: auto;
+    padding-bottom: 1%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+    grid-gap: 20px;
+}
+
+.card-location {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-btn {
+    margin-bottom: 5%;
+    padding: 5%;
+    color: white;
+    background-color: rgb(58, 58, 58);
+    border: none;
+    cursor: pointer;
+}
+
+.card-btn:hover {
+    background-color: rgb(115, 115, 115);
+}
+
+.text-end {
+    text-align: end;
+    justify-content: end;
+}
