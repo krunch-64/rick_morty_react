@@ -3,7 +3,8 @@ import axios from "axios";
 import {useParams} from 'react-router-dom';
 import '../styles/single.scss'
 import Episodes from "../components/Episodes";
-
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Single = () => {
 
@@ -27,21 +28,26 @@ const Single = () => {
 
 
   return (
-    <div className="container-details">
-      <img src={image} className="img-details"/>
-      <div>
-        <h2>{name}</h2>
-        <p>{location}</p>
-        <p>{description}</p>
-        <hr/>
-        <h3>Épisodes : </h3>
-        <ul>
-          {episodes.map((episode) => {
-            return <Episodes episode={episode} />
-          })}
-        </ul>
+    <div>
+      <Header/>
+        <div className="container-details">
+        <img src={image} className="img-details"/>
+        <div>
+          <h2>{name}</h2>
+          <p>{location}</p>
+          <p>{description}</p>
+          <hr/>
+          <h3>Épisodes : </h3>
+          <ul>
+            {episodes.map((episode) => {
+              return <Episodes episode={episode} />
+            })}
+          </ul>
+        </div>
       </div>
+      <Footer/>
     </div>
+   
   )
 
 }

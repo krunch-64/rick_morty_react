@@ -8,7 +8,6 @@ const CardList = () => {
     const [characters , setCharacters] = useState([])
     
 
-    console.log(pagination);
     useEffect(() => {
        axios.get("https://rickandmortyapi.com/api/character")
        .then(res => {
