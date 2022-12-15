@@ -1,0 +1,30 @@
+.card {
+    background-color: white;
+    width: 300px;
+    height: auto;
+    padding-bottom: 1%;
+}
+
+.card-location {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-btn {
+    margin-bottom: 5%;
+    padding: 5%;
+    color: white;
+    background-color: rgb(58, 58, 58);
+    border: none;
+    cursor: pointer;
+}
+
+.card-btn:hover {
+    background-color: rgb(115, 115, 115);
+}
+
+.text-end {
+    text-align: end;
+    justify-content: end;
+}

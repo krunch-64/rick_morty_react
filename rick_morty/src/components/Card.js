@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot,faCross ,faCircleArrowRight} from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
+import '../styles/card.scss';
 
 const Card = (props) => {
   return (
