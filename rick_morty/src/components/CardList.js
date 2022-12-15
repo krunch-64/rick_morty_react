@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Card from './Card';
+import NavPage from './NavPage';
 
 const CardList = () => {
 
-    const [pagination , setPagination] = useState([])
-    const [characters , setCharacters] = useState([])
-    
 
-    console.log(pagination);
+    const [characters , setCharacters] = useState([])
+    const [page , setPage] = useState(1)
+
+
     useEffect(() => {
-       axios.get("https://rickandmortyapi.com/api/character")
-       .then(res => {
-        setPagination(res.data.info)
-        setCharacters(res.data.results)
-       })
-    }, [])
+        async function fetchData() {
+            const data = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+            const { results } = await data.json();
+            setCharacters(results)
+        }
+        fetchData();
+    }, [page])
+
+
+
 
     return (
-        <div className='container'>
-        {characters.map((character) => {
-            return <Card key={character.id} id={character.id} image={character.image} name={character.name} location={character.location.name} status={character.status} />
-        })}
+        <div>
+            <NavPage page={page} setPage={setPage} />
+            <main className='container'>
+                {characters.map((character) => {
+                    return <Card key={character.id} id={character.id} image={character.image} name={character.name} location={character.location.name} status={character.status} />
+                })}
+            </main>   
+            <NavPage page={page} setPage={setPage} />
         </div>
+        
     );
-
-
-
 }
 
 export default CardList
