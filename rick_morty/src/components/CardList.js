@@ -9,11 +9,13 @@ const CardList = () => {
     const [page , setPage] = useState(1)
 
 
+
     useEffect(() => {
         async function fetchData() {
             const data = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
             const { results } = await data.json();
             setCharacters(results)
+        
         }
         fetchData();
     }, [page])
@@ -29,7 +31,7 @@ const CardList = () => {
                     return <Card key={character.id} id={character.id} image={character.image} name={character.name} location={character.location.name} status={character.status} />
                 })}
             </main>   
-            <NavPage page={page} setPage={setPage} />
+            <NavPage page={page} setPage={setPage}/>
         </div>
         
     );

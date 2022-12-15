@@ -8,7 +8,6 @@ import React from 'react'
 
 const Header = () => {
   return (
-    
     <header>
       <NavLink to="/home"><img src={logo}/></NavLink>
       <p>Rick et Morty : apprentissage de react sans prise de tête</p>
@@ -17,8 +16,6 @@ const Header = () => {
         <FontAwesomeIcon icon={faJs} color='yellow' className='icon-header'/>
         <FontAwesomeIcon icon={faReact} color='cyan' className='icon-header'/>
     </header>
-    
-    
   )
 }
 
