@@ -4,14 +4,12 @@ import Card from './Card';
 
 const CardList = () => {
 
-    const [pagination , setPagination] = useState([])
     const [characters , setCharacters] = useState([])
     
 
     useEffect(() => {
        axios.get("https://rickandmortyapi.com/api/character")
        .then(res => {
-        setPagination(res.data.info)
         setCharacters(res.data.results)
        })
     }, [])
